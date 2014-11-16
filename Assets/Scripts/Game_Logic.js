@@ -12,13 +12,13 @@ function Start ()
 }
 
 function Update () {
-	if (Input.GetKeyDown("space")) 
+	if (Input.GetKeyDown("space") || Input.touchCount>0) 
 	{
 	move = true;
 	rotate = true;
 	}
 	
-	//move
+	//initial camera move
 	if (move == true)
 	{
 	maincam.transform.Translate((new Vector3(0, 1, 1) * Time.deltaTime),Space.World);
@@ -28,7 +28,7 @@ function Update () {
 	maincam.transform.Rotate(Vector3.right * (Time.deltaTime * 18.5)); 
 	}
 	
-	//move check
+	//camera move check
 	if (maincam.transform.position.y > 2.88)
 	{
 	move = false;
