@@ -4,7 +4,6 @@ var maincam : Camera;
 var move;
 var rotate;
 var target = Quaternion.Euler (53, 0, 0);
-var count = 0;
 
 function Start () 
 {
@@ -13,18 +12,10 @@ function Start ()
 }
 
 function Update () {
-	if(count == 0)
+	if (Input.GetKeyDown("space") || Input.touchCount>0) 
 	{
-		if (Input.GetKeyDown("space") || Input.touchCount>0) 
-		{
-		move = true;
-		rotate = true;
-		count++;
-		}
-	}
-	else
-	{
-	//do nothing
+	move = true;
+	rotate = true;
 	}
 	
 	//initial camera move
